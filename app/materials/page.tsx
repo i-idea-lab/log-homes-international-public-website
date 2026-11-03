@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
@@ -13,16 +14,22 @@ const DETAILS = [
     title: "Imported, Kiln-Dried Timber",
     description:
       "Wood is kiln-dried before it ever reaches a site — reducing moisture content so the timber won't warp, crack, or shift once built.",
+    image: "/images/materials/kiln-dried-timber.jpg",
+    alt: "Kiln-dried timber beams stacked in craftsman facility",
   },
   {
     title: "Tongue-and-Groove Joinery",
     description:
       "Logs interlock via precision-cut tongue-and-groove joints, dimensioned from 38mm to 100mm depending on the project's climate and structural needs.",
+    image: "/images/materials/tongue-and-groove-joinery.jpg",
+    alt: "Precision tongue-and-groove interlocking timber joints",
   },
   {
     title: "Load-Bearing Frame Construction",
     description:
       "The timber frame itself carries the structural load — not a decorative cladding over conventional construction — built to stand for decades.",
+    image: "/images/materials/load-bearing-frame.jpg",
+    alt: "Massive exposed load-bearing solid timber frame structure",
   },
 ];
 
@@ -46,12 +53,15 @@ export default function MaterialsPage() {
                   i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <RevealImage className="aspect-[4/3]" curtainColor="bg-wood-dark">
-                  <div className="absolute inset-0 bg-gradient-to-br from-wood-midLight to-wood-mid flex items-center justify-center">
-                    <span className="font-body text-xs uppercase tracking-eyebrow text-putty/70">
-                      Craft photo pending
-                    </span>
-                  </div>
+                <RevealImage className="aspect-[4/3] rounded-sm shadow-md" curtainColor="bg-wood-dark">
+                  <Image
+                    src={detail.image}
+                    alt={detail.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={i === 0}
+                  />
                 </RevealImage>
                 <Reveal>
                   <Eyebrow>{`0${i + 1}`}</Eyebrow>
