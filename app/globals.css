@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom cursor replaces the native one on precise-pointer devices only —
+   touch devices and reduced-motion users keep the system cursor. */
+@media (pointer: fine) {
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+/* Dark gradient overlay for hero text contrast over placeholder/photo media */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 29, 40, 0.55) 0%,
+    rgba(39, 29, 40, 0.35) 45%,
+    rgba(39, 29, 40, 0.75) 100%
+  );
+}
+
+/* Global motion guardrail — see Section 5 of the build scope doc */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  body,
+  a,
+  button {
+    cursor: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hides the scrollbar on horizontally-scrolling tracks (carousel) while
+   keeping native scroll/touch/trackpad behavior. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
