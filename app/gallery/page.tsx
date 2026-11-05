@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
@@ -37,13 +38,22 @@ export default function GalleryPage() {
                   aria-label={`Open ${tile.title}`}
                   className="group block text-left"
                 >
-                  {/* PLACEHOLDER — replace the gradient with a real photo */}
                   <RevealImage className={tile.aspect} curtainColor="bg-wood-dark">
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-wood-mid to-wood-midLight">
-                      <span className="px-2 text-center font-body text-[10px] uppercase tracking-eyebrow text-putty/70 md:text-xs">
-                        Photo pending
-                      </span>
-                    </div>
+                    {tile.image ? (
+                      <Image
+                        src={tile.image}
+                        alt={tile.title}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-wood-mid to-wood-midLight">
+                        <span className="px-2 text-center font-body text-[10px] uppercase tracking-eyebrow text-putty/70 md:text-xs">
+                          Photo pending
+                        </span>
+                      </div>
+                    )}
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-wood-dark/80 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <p className="font-display text-sm text-paper md:text-base">
                         {tile.title}

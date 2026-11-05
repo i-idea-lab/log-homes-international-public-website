@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Container from "./Container";
@@ -21,29 +22,21 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative h-screen min-h-[640px] overflow-hidden">
-      {/*
-        PLACEHOLDER HERO MEDIA
-        Replace this gradient with the owner's hero photo/video once delivered.
-        Keep the dark overlay beneath it for text contrast — see globals.css .hero-overlay
-      */}
+      {/* Flagship Hero Photography */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute inset-0 -top-[10%] h-[120%] bg-gradient-to-br from-wood-dark via-wood-mid to-wood-midLight"
-      />
-      <div className="hero-overlay absolute inset-0" />
-
-      {/* Makes the placeholder status explicit: the right side is where the
-          owner's hero photo/video reads through once it replaces the gradient.
-          Remove this label when the real media goes in. */}
-      <div className="absolute right-10 top-1/2 z-[5] hidden -translate-y-1/2 md:block">
-        <div className="border border-dashed border-putty/30 px-8 py-16 text-center">
-          <p className="font-body text-[10px] uppercase tracking-eyebrow text-putty/50">
-            Hero photo / video
-            <br />
-            pending
-          </p>
-        </div>
-      </div>
+        className="absolute inset-0 -top-[10%] h-[120%]"
+      >
+        <Image
+          src="/images/hero/hero-lake-villa.jpg"
+          alt="Luxury lakefront wooden villa by Log Homes International"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
+      <div className="hero-overlay absolute inset-0 bg-wood-dark/40 backdrop-brightness-95" />
 
       {/* Entrance curtain — wipes away once on load, above everything else in the hero */}
       <motion.div

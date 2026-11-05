@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
@@ -41,13 +42,15 @@ export default function AboutPage() {
         <section className="bg-paper py-24 md:py-32">
           <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              {/* PLACEHOLDER — replace with a real founder/team or job-site photo */}
-              <RevealImage className="aspect-[4/5]" curtainColor="bg-putty">
-                <div className="absolute inset-0 bg-gradient-to-br from-wood-mid to-wood-dark flex items-center justify-center">
-                  <span className="font-body text-xs uppercase tracking-eyebrow text-putty/70">
-                    Team photo pending
-                  </span>
-                </div>
+              <RevealImage className="aspect-[4/5] rounded-sm shadow-md" curtainColor="bg-putty">
+                <Image
+                  src="/images/about/oman-trade-expo.jpg"
+                  alt="Log Homes International expansion into Oman"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </RevealImage>
             </div>
             <Reveal>

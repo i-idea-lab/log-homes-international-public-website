@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import { useCallback, useEffect, useRef } from "react";
 import { useCursor } from "@/lib/cursor-context";
 
-type Item = { title: string; description: string };
+type Item = { title: string; description: string; image?: string };
 
 // Controlled lightbox: parent owns `index` (null = closed). Arrow keys and
 // on-screen arrows cycle through the whole set; Escape, the close button and
@@ -134,13 +135,23 @@ export default function Lightbox({
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* PLACEHOLDER — swap for the real, full-size <Image> */}
-                <div className="relative aspect-[4/3] max-h-[68vh] w-full bg-gradient-to-br from-wood-mid to-wood-midLight">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-body text-xs uppercase tracking-eyebrow text-putty/70">
-                      Photo pending
-                    </span>
-                  </div>
+                <div className="relative aspect-[4/3] max-h-[68vh] w-full overflow-hidden bg-wood-dark rounded-sm">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                      priority
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-wood-mid to-wood-midLight">
+                      <span className="font-body text-xs uppercase tracking-eyebrow text-putty/70">
+                        Photo pending
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-6 flex items-start justify-between gap-6">
