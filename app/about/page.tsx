@@ -9,6 +9,7 @@ import RevealImage from "@/components/RevealImage";
 import Reveal from "@/components/Reveal";
 import StatsStrip from "@/components/StatsStrip";
 import CTASection from "@/components/CTASection";
+import FounderPhotoSelector from "@/components/FounderPhotoSelector";
 
 const PILLARS = [
   {
@@ -199,28 +200,10 @@ export default function AboutPage() {
           <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#C29B38_1px,transparent_1px)] [background-size:24px_24px]" />
           <Container className="relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              {/* Founder Monogram / Frame Placeholder */}
+              {/* Founder Photo & Option Switcher */}
               <div className="lg:col-span-5">
                 <Reveal>
-                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto border border-gold/30 p-3 bg-brand/50">
-                    <div className="relative h-full w-full bg-brand/90 flex flex-col items-center justify-center p-8 text-center border border-dashed border-gold/25">
-                      <div className="w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center mb-6 text-gold font-display text-2xl tracking-widest bg-gold/5 shadow-inner">
-                        SS
-                      </div>
-                      <span className="font-display text-2xl text-paper tracking-wide mb-1">
-                        Shoaib Shaikh
-                      </span>
-                      <span className="font-mono text-xs uppercase tracking-widest text-gold mb-6">
-                        Founder &amp; Managing Director
-                      </span>
-                      <p className="font-body text-xs text-paper/60 leading-relaxed max-w-xs">
-                        Pioneering authentic solid timber architecture in India &amp; the GCC since 2012.
-                      </p>
-                      <div className="mt-8 pt-6 border-t border-paper/10 w-full flex items-center justify-center text-paper/40 font-mono text-[11px] tracking-wider uppercase">
-                        <span>Official Portrait Forthcoming</span>
-                      </div>
-                    </div>
-                  </div>
+                  <FounderPhotoSelector />
                 </Reveal>
               </div>
 
