@@ -132,20 +132,11 @@ const SERVICES: ServiceItem[] = [
 ];
 
 export default function ServicesPage() {
-  const [activeTab, setActiveTab] = useState<string>("design");
   const [expandedScope, setExpandedScope] = useState<string | null>(null);
 
   // Estimator Quiz State
   const [buildType, setBuildType] = useState<string>("villa");
   const [scopeType, setScopeType] = useState<string>("turnkey");
-
-  const scrollToSection = (id: string) => {
-    setActiveTab(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   const getEstimatedTimeline = () => {
     if (scopeType === "design") return "4–6 Weeks (Complete Architecture & Engineering)";
@@ -169,39 +160,6 @@ export default function ServicesPage() {
           title="From First Sketch to Final Handover"
           intro="A single in-house team carries every project end to end — bespoke architecture, sustainable timber sourcing, master construction, and lifelong maintenance."
         />
-
-        {/* Interactive Sticky Sub-Navigation */}
-        <section className="sticky top-[60px] z-30 border-y border-putty bg-paper/95 backdrop-blur-md py-3 shadow-xs">
-          <Container className="flex items-center justify-between overflow-x-auto no-scrollbar gap-3 md:gap-6">
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral/70 hidden sm:inline-block">
-              Jump to Service:
-            </span>
-            <div className="flex items-center gap-2 md:gap-4 shrink-0">
-              {SERVICES.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => scrollToSection(s.id)}
-                  className={`px-3.5 py-1.5 text-xs md:text-sm font-body tracking-wide transition-all rounded-full flex items-center gap-2 ${
-                    activeTab === s.id
-                      ? "bg-brand text-paper shadow-sm"
-                      : "text-brand/80 hover:text-brand hover:bg-sand/60"
-                  }`}
-                >
-                  <span className={activeTab === s.id ? "text-gold" : "text-brand/50"}>
-                    {s.number}
-                  </span>
-                  <span>{s.title}</span>
-                </button>
-              ))}
-            </div>
-            <Link
-              href="/contact"
-              className="hidden lg:inline-flex text-xs py-2 px-4 uppercase font-body font-medium tracking-wide border border-brand text-brand hover:bg-brand hover:text-paper transition-colors rounded-xs"
-            >
-              Book Consultation
-            </Link>
-          </Container>
-        </section>
 
         {/* Detailed Alternating Service Showcases */}
         <div className="bg-paper py-16 md:py-24 space-y-24 md:space-y-36">
