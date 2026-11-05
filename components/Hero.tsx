@@ -22,7 +22,7 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative h-screen min-h-[640px] overflow-hidden">
-      {/* Flagship Hero Photography */}
+      {/* Hero photography. Keep the dark overlay above it for text contrast — see globals.css .hero-overlay */}
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-0 -top-[10%] h-[120%]"
@@ -36,7 +36,7 @@ export default function Hero() {
           className="object-cover object-center"
         />
       </motion.div>
-      <div className="hero-overlay absolute inset-0 bg-wood-dark/40 backdrop-brightness-95" />
+      <div className="hero-overlay absolute inset-0" />
 
       {/* Entrance curtain — wipes away once on load, above everything else in the hero */}
       <motion.div

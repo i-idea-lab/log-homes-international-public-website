@@ -135,7 +135,7 @@ export default function Lightbox({
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="relative aspect-[4/3] max-h-[68vh] w-full overflow-hidden bg-wood-dark rounded-sm">
+                <div className="relative aspect-[4/3] max-h-[68vh] w-full overflow-hidden bg-wood-dark">
                   {item.image ? (
                     <Image
                       src={item.image}

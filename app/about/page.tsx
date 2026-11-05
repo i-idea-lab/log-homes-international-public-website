@@ -42,7 +42,7 @@ export default function AboutPage() {
         <section className="bg-paper py-24 md:py-32">
           <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              <RevealImage className="aspect-[4/5] rounded-sm shadow-md" curtainColor="bg-putty">
+              <RevealImage className="aspect-[4/5]" curtainColor="bg-putty">
                 <Image
                   src="/images/about/oman-trade-expo.jpg"
                   alt="Log Homes International expansion into Oman"

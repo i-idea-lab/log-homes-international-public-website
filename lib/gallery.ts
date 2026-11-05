@@ -1,3 +1,7 @@
+// Gallery photos come from the owner's Instagram reels (shared via WhatsApp).
+// DRAFT: titles and captions are descriptive copy written from the photos and
+// still need the owner's review. `aspect` keeps the magazine-style variation
+// in the grid; the lightbox ignores it.
 export interface GalleryItem {
   aspect: string;
   title: string;

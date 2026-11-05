@@ -53,7 +53,7 @@ export default function MaterialsPage() {
                   i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <RevealImage className="aspect-[4/3] rounded-sm shadow-md" curtainColor="bg-wood-dark">
+                <RevealImage className="aspect-[4/3]" curtainColor="bg-wood-dark">
                   <Image
                     src={detail.image}
                     alt={detail.alt}

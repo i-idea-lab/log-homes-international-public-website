@@ -30,14 +30,14 @@ export default function ProjectCard({
         onMouseLeave={resetCursor}
       >
         <TiltCard className="[transform-style:preserve-3d]">
-          <RevealImage className="aspect-[4/5] rounded-sm shadow-md">
+          <RevealImage className="aspect-[4/5]">
             {image ? (
               <Image
                 src={image}
                 alt={title}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover"
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-wood-mid to-wood-dark flex items-center justify-center">
