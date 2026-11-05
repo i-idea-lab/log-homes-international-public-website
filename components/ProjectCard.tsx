@@ -9,11 +9,13 @@ import RevealImage from "./RevealImage";
 import TiltCard from "./TiltCard";
 
 export default function ProjectCard({
+  slug,
   title,
   category,
   location,
   image,
 }: {
+  slug: string;
   title: string;
   category: string;
   location: string;
@@ -24,7 +26,7 @@ export default function ProjectCard({
   return (
     <motion.div variants={fadeUp}>
       <Link
-        href="/projects"
+        href={`/projects/${slug}`}
         className="group block"
         onMouseEnter={() => setCursor({ variant: "view" })}
         onMouseLeave={resetCursor}

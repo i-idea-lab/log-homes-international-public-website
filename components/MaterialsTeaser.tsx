@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Container from "./Container";
 import Eyebrow from "./Eyebrow";
 import RevealImage from "./RevealImage";
@@ -17,13 +18,14 @@ export default function MaterialsTeaser() {
     <section className="bg-putty py-24 md:py-32">
       <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         <div className="order-2 md:order-1">
-          {/* PLACEHOLDER — replace with a close-up material/craft photo */}
           <RevealImage className="aspect-square" curtainColor="bg-putty">
-            <div className="absolute inset-0 bg-gradient-to-br from-wood-midLight to-wood-mid flex items-center justify-center">
-              <span className="font-body text-xs uppercase tracking-eyebrow text-putty/70">
-                Material photo pending
-              </span>
-            </div>
+            <Image
+              src="/images/materials/craft-joinery.jpg"
+              alt="Interlocking log joint on a craftsman's workbench beside a chisel and mallet"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </RevealImage>
         </div>
 
