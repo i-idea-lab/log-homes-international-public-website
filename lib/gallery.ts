@@ -58,4 +58,16 @@ export const GALLERY: GalleryItem[] = [
     description: "Open-concept timber chalet living and dining room with exposed rafters and warm ambient lighting.",
     image: "/images/gallery/gallery-8.jpg",
   },
+  {
+    aspect: "aspect-[3/4]",
+    title: "Oman Expansion — Announcement",
+    description: "The founder with our Omani counterpart in the announcement of Log Homes India's expansion into Oman.",
+    image: "/images/gallery/oman-announcement.jpg",
+  },
+  {
+    aspect: "aspect-[4/5]",
+    title: "Oman Expansion — Expo Meeting",
+    description: "The founder meeting our Omani counterpart at an expo as Log Homes India expands into Oman.",
+    image: "/images/gallery/oman-expo-meeting.jpg",
+  },
 ];
