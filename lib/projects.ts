@@ -1,5 +1,4 @@
-// Project photos come from the owner's Instagram reels (shared via WhatsApp)
-// and are the India portfolio, shown on this site as proof of craftsmanship.
+// Project photos come from the owner's Instagram reels (shared via WhatsApp).
 // DRAFT: titles, categories, locations and descriptions are inferred from the
 // photos and reel captions and still need the owner's confirmation. Locations
 // are only specific (e.g. Karjat) where a reel's location tag said so; otherwise
@@ -105,6 +104,18 @@ export const PROJECTS: Project[] = [
         width: 580,
         height: 475,
       },
+      {
+        src: "/images/projects/lakeside-two-story-estate.jpg",
+        alt: "Substantial two-story lakeside timber residence on raised plinth",
+        width: 1120,
+        height: 593,
+      },
+      {
+        src: "/images/projects/mezzanine-loft-bedroom.jpg",
+        alt: "Master bedroom suite with timber staircase leading to mezzanine loft",
+        width: 1600,
+        height: 956,
+      },
     ],
   },
   {
@@ -128,6 +139,18 @@ export const PROJECTS: Project[] = [
         alt: "Timber bungalow and pool at dusk with forested hills behind",
         width: 640,
         height: 670,
+      },
+      {
+        src: "/images/projects/private-luxury-pool-villa.jpg",
+        alt: "Private pool villa with pitched timber gable roof",
+        width: 900,
+        height: 1600,
+      },
+      {
+        src: "/images/projects/timber-lounge-interior.jpg",
+        alt: "Warm timber lounge with upholstered armchairs and garden glazing",
+        width: 960,
+        height: 517,
       },
     ],
   },
@@ -214,23 +237,55 @@ export const PROJECTS: Project[] = [
     title: "Karjat Wooden Resort",
     category: "Resort",
     location: "Karjat, Maharashtra",
-    status: "Under development",
     summary:
-      "A row of timber cottages around a paved courtyard, photographed as the resort was being completed.",
+      "A luxury eco-resort featuring clusters of solid timber chalets, infinity swimming pool, and sundecks.",
     description: [
-      "A row of timber cottages with pitched, shingled roofs, arranged around a paved courtyard with landscaped beds. The reel it comes from was captioned \"Wooden Resort Coming Up\", so the site was still being completed when it was filmed.",
+      "A luxury solid timber resort in Karjat featuring a cluster of handcrafted wooden cottages arranged around an illuminated swimming pool and stone-paved landscaped grounds.",
+      "Each chalet features natural pine log interiors, master bedroom suites, open-plan living and dining spaces, and expansive sundecks opening to mountain views.",
     ],
     highlights: [
-      "Row of timber cottages with shingled roofs",
-      "Paved courtyard with landscaped beds",
+      "Solid timber cottages with pitched shingled roofs",
+      "Central swimming pool & stone-paved sundecks",
+      "Handcrafted pine log master suites & dining hall",
+      "Illuminated landscaped gardens & stone pathways",
     ],
-    image: "/images/projects/karjat-wooden-resort.jpg",
+    image: "/images/projects/chalets-pool-twilight.jpg",
     images: [
       {
-        src: "/images/projects/karjat-wooden-resort.jpg",
-        alt: "Timber cottages around a paved courtyard while the resort was being completed",
-        width: 620,
-        height: 540,
+        src: "/images/projects/chalets-pool-twilight.jpg",
+        alt: "Timber chalets illuminated beside the swimming pool at twilight",
+        width: 960,
+        height: 511,
+      },
+      {
+        src: "/images/projects/infinity-pool-cottages.jpg",
+        alt: "Crystal blue swimming pool with paved deck overlooking the cottages",
+        width: 960,
+        height: 536,
+      },
+      {
+        src: "/images/projects/cottages-dusk-lawn.jpg",
+        alt: "Illuminated wooden chalets connected by stone paths across manicured lawns",
+        width: 960,
+        height: 519,
+      },
+      {
+        src: "/images/projects/timber-cottages-sundeck.jpg",
+        alt: "Expansive timber sundeck with panoramic Western Ghats hillside views",
+        width: 960,
+        height: 528,
+      },
+      {
+        src: "/images/projects/resort-living-dining.jpg",
+        alt: "Spacious resort chalet living and dining hall in solid pine",
+        width: 960,
+        height: 544,
+      },
+      {
+        src: "/images/projects/master-timber-bedroom.jpg",
+        alt: "Master timber bedroom suite with solid log walls and wood floor",
+        width: 960,
+        height: 515,
       },
     ],
   },
