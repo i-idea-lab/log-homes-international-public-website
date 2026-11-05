@@ -9,7 +9,7 @@ import Reveal from "./Reveal";
 const STATS = [
   { value: 13, suffix: "+", label: "Years of Craftsmanship" },
   { value: 2, suffix: "", label: "Countries — India & Oman" },
-  { value: 0, suffix: "+", label: "Homes Built — [PLACEHOLDER: confirm real count]" },
+  { value: 27, suffix: "+", label: "Homes Built" },
 ];
 
 export default function StatsStrip() {
