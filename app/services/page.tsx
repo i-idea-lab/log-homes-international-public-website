@@ -174,7 +174,7 @@ export default function ServicesPage() {
                 className="scroll-mt-32"
               >
                 <Container>
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                     {/* Visual Media Column */}
                     <div className={`lg:col-span-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                       <Reveal>
