@@ -1,53 +1,51 @@
 "use client";
 
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { useRef, useState } from "react";
+import { useScroll } from "motion/react";
+import { useCallback, useRef, useState } from "react";
 import ProcessSteps from "./ProcessSteps";
 import ProcessVisual from "./ProcessVisual";
+import type { ProcessStep } from "@/app/process/page";
 
-// Text steps scroll normally on the left; the panel on the right stays
-// sticky and is driven DIRECTLY by scroll position, not a timer. Each step
-// gets an even slice of the scroll range spanning this whole container, and
-// how far the user has scrolled through a slice IS how much of that step's
-// icon has drawn (see ProcessVisual/AnimatedIcon). There's no clock to fall
-// behind: by the moment the panel scrolls out of its sticky window, the
-// scroll fraction has necessarily reached that slice's endpoint too, so the
-// icon is always left fully drawn — never caught mid-stroke, however fast
-// someone scrolls.
-//
-// To put the panel on the left instead, add `lg:order-first` to its wrapper
-// div below.
 export default function ProcessScrollytelling({
   steps,
 }: {
-  steps: { title: string; short: string; description: string }[];
+  steps: ProcessStep[];
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end center"],
+    offset: ["start start", "end end"],
   });
 
-  // Only used for the discrete bits (step title crossfade, tracker dots) —
-  // the icon drawing itself reads scrollYProgress continuously, not this.
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const next = Math.min(steps.length - 1, Math.max(0, Math.floor(v * steps.length)));
-    setActiveStep((prev) => (prev === next ? prev : next));
-  });
+  const handleSelectStep = useCallback((index: number) => {
+    setActiveStep(index);
+    const targetEl = document.getElementById(steps[index].id);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [steps]);
 
   return (
-    <div ref={containerRef} className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-      <ProcessSteps steps={steps} />
-      <div className="hidden lg:block">
-        <div className="sticky top-32">
-          <ProcessVisual
-            steps={steps}
-            scrollYProgress={scrollYProgress}
-            activeStep={activeStep}
-          />
-        </div>
+    <div ref={containerRef} className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start relative">
+      {/* Left Column: Vertical Process Steps */}
+      <div className="lg:col-span-6 xl:col-span-7">
+        <ProcessSteps
+          steps={steps}
+          activeStep={activeStep}
+          onStepVisible={setActiveStep}
+        />
+      </div>
+
+      {/* Right Column: Sticky Architectural Visual & Blueprint Canvas */}
+      <div className="hidden lg:block lg:col-span-6 xl:col-span-5 sticky top-28">
+        <ProcessVisual
+          steps={steps}
+          activeStep={activeStep}
+          scrollYProgress={scrollYProgress}
+          onSelectStep={handleSelectStep}
+        />
       </div>
     </div>
   );
