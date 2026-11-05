@@ -120,9 +120,6 @@ export default function AboutPage() {
                 className="font-display text-3xl md:text-4xl text-brand mb-6"
               />
               <p className="font-body text-neutral leading-relaxed mb-4">
-                {/* PLACEHOLDER — reasonable claims for a timber-frame
-                    builder entering a hot climate; confirm specifics with
-                    the owner before publishing. */}
                 Solid timber has genuine thermal mass — it absorbs heat
                 slowly through the day and releases it slowly at night,
                 keeping interiors steadier through Oman&rsquo;s heat than many
@@ -137,6 +134,74 @@ export default function AboutPage() {
                 textured timber rather than poured concrete.
               </p>
             </Reveal>
+          </Container>
+        </section>
+
+        {/* About The Founder */}
+        <section className="bg-wood-dark py-24 md:py-32 text-paper relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#C29B38_1px,transparent_1px)] [background-size:24px_24px]" />
+          <Container className="relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              {/* Founder Monogram / Frame Placeholder */}
+              <div className="lg:col-span-5">
+                <Reveal>
+                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto border border-gold/30 p-3 bg-brand/50">
+                    <div className="relative h-full w-full bg-brand/90 flex flex-col items-center justify-center p-8 text-center border border-dashed border-gold/25">
+                      <div className="w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center mb-6 text-gold font-display text-2xl tracking-widest bg-gold/5 shadow-inner">
+                        SS
+                      </div>
+                      <span className="font-display text-2xl text-paper tracking-wide mb-1">
+                        Shoaib Shaikh
+                      </span>
+                      <span className="font-mono text-xs uppercase tracking-widest text-gold mb-6">
+                        Founder &amp; Managing Director
+                      </span>
+                      <p className="font-body text-xs text-paper/60 leading-relaxed max-w-xs">
+                        Pioneering authentic solid timber architecture in India &amp; the GCC since 2012.
+                      </p>
+                      <div className="mt-8 pt-6 border-t border-paper/10 w-full flex items-center justify-center text-paper/40 font-mono text-[11px] tracking-wider uppercase">
+                        <span>Official Portrait Forthcoming</span>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+
+              {/* Founder Letter / Narrative */}
+              <div className="lg:col-span-7">
+                <Reveal>
+                  <Eyebrow>Founder&apos;s Perspective</Eyebrow>
+                  <SplitHeading
+                    as="h2"
+                    text="&ldquo;A wooden home, built honestly, is not a rustic compromise &mdash; it is the ultimate expression of permanence.&rdquo;"
+                    className="font-display text-2xl md:text-3xl lg:text-4xl text-paper mb-8 leading-snug"
+                  />
+                  <div className="space-y-4 font-body text-paper/80 leading-relaxed text-base">
+                    <p>
+                      When I founded Log Homes India in 2012, authentic solid timber construction was virtually unheard of in our region. Most builders relied on concrete and brick, dismissing wood as either vulnerable to extreme heat or purely cosmetic.
+                    </p>
+                    <p>
+                      I believed otherwise. Having studied European timber engineering and joinery, I knew that properly harvested, kiln-dried Nordic spruce and Siberian pine could outlast masonry when detailed with care. Wood breathes, naturally regulates thermal comfort in both cold mountain winters and arid desert climates, and develops a richer patina over decades.
+                    </p>
+                    <p>
+                      Our expansion into Oman under Log Homes International represents the natural evolution of this journey. Every home we build remains an uncompromising commitment to honest materials, master carpentry, and architecture that lives in quiet harmony with its environment.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-8 border-t border-paper/15 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-display text-xl text-paper">Shoaib Shaikh</h4>
+                      <p className="font-mono text-xs uppercase tracking-wider text-gold mt-0.5">
+                        Founder &amp; Managing Director
+                      </p>
+                    </div>
+                    <div className="font-serif italic text-gold/80 text-xl tracking-wider select-none">
+                      Shoaib Shaikh
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
           </Container>
         </section>
 
