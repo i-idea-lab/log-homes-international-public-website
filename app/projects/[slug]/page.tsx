@@ -9,6 +9,7 @@ import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
 import RelatedProjects from "@/components/RelatedProjects";
 import CTASection from "@/components/CTASection";
+import ProjectImageCarousel from "@/components/ProjectImageCarousel";
 import { PROJECTS, getProject } from "@/lib/projects";
 
 // One static page per project in lib/projects.ts.
@@ -25,7 +26,6 @@ export default async function ProjectPage({
   const project = getProject(slug);
   if (!project) notFound();
 
-  const [main, ...rest] = project.images;
   const related = PROJECTS.filter((p) => p.slug !== project.slug).slice(0, 3);
 
   const facts = [
@@ -47,14 +47,9 @@ export default async function ProjectPage({
         <section className="bg-paper py-16 md:py-24">
           <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
             <Reveal>
-              <Image
-                src={main.src}
-                alt={main.alt}
-                width={main.width}
-                height={main.height}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                className="h-auto w-full"
+              <ProjectImageCarousel
+                images={project.images}
+                title={project.title}
               />
             </Reveal>
 
@@ -102,30 +97,6 @@ export default async function ProjectPage({
             </Reveal>
           </Container>
         </section>
-
-        {rest.length > 0 && (
-          <section className="bg-putty py-16 md:py-24">
-            <Container>
-              <Reveal>
-                <Eyebrow>More from this project</Eyebrow>
-              </Reveal>
-              <div className="mt-8 columns-1 gap-6 sm:columns-2 md:columns-3 [&>*]:mb-6">
-                {rest.map((image) => (
-                  <Reveal key={image.src}>
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={image.width}
-                      height={image.height}
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                      className="h-auto w-full"
-                    />
-                  </Reveal>
-                ))}
-              </div>
-            </Container>
-          </section>
-        )}
 
         <section className="bg-paper py-16 md:py-24">
           <Container>
