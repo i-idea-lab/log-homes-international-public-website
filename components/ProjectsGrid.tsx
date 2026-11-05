@@ -19,6 +19,7 @@ export default function ProjectsGrid() {
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const { setCursor, resetCursor } = useCursor();
 
   const update = useCallback(() => {
@@ -36,6 +37,32 @@ export default function ProjectsGrid() {
     return () => window.removeEventListener("resize", update);
   }, [update]);
 
+  // Auto-scroll every 3 seconds; loop back to start once end is reached
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      const el = trackRef.current;
+      if (!el) return;
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) return;
+
+      if (el.scrollLeft >= max - 20) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        const firstCard = el.firstElementChild as HTMLElement | null;
+        const step = firstCard ? firstCard.offsetWidth + 24 : el.clientWidth * 0.8;
+        if (el.scrollLeft + step >= max - 15) {
+          el.scrollTo({ left: max, behavior: "smooth" });
+        } else {
+          el.scrollBy({ left: step, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   const scrollByCard = (dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
@@ -46,7 +73,13 @@ export default function ProjectsGrid() {
     "flex h-12 w-12 items-center justify-center border border-brand/30 text-brand transition-colors duration-300 hover:bg-brand hover:text-paper disabled:pointer-events-none disabled:opacity-30";
 
   return (
-    <section className="bg-paper py-24 md:py-32">
+    <section
+      className="bg-paper py-24 md:py-32"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <Container>
         <div className="mb-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <motion.div
