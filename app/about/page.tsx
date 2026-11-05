@@ -13,18 +13,52 @@ import CTASection from "@/components/CTASection";
 const PILLARS = [
   {
     title: "Craftsmanship",
+    tag: "Master Timber Joinery",
+    pledge: "Carpenters trained exclusively in solid wood",
     description:
       "Every joint, beam, and finish is executed by carpenters trained specifically in timber-frame construction — not adapted from conventional masonry work.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-7 h-7 text-gold" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="6" y="8" width="36" height="32" rx="2" stroke="currentColor" />
+        <path d="M18 8v10l6 4-6 4v14" />
+        <path d="M30 8v10l-6 4 6 4v14" />
+        <circle cx="24" cy="22" r="2.5" fill="currentColor" />
+        <path d="M12 16h24" strokeDasharray="2 2" strokeWidth="1" />
+        <path d="M12 32h24" strokeDasharray="2 2" strokeWidth="1" />
+      </svg>
+    ),
   },
   {
     title: "Accountability",
+    tag: "Single-Source Stewardship",
+    pledge: "One dedicated team from design to handover",
     description:
       "One in-house team carries a project from first site visit through design, construction, and handover — a single point of contact throughout.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-7 h-7 text-gold" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 4l16 6v14c0 11-7.5 20-16 23-8.5-3-16-12-16-23V10l16-6z" />
+        <path d="M24 15v14" />
+        <path d="M18 21l6-6 6 6" />
+        <circle cx="24" cy="29" r="2" fill="currentColor" />
+        <path d="M16 34h16" />
+      </svg>
+    ),
   },
   {
     title: "Longevity",
+    tag: "Generational Resilience",
+    pledge: "Slow-grown Nordic timber built for decades",
     description:
       "Imported, kiln-dried timber and load-bearing frame construction are chosen for structures meant to last for decades, not seasons.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-7 h-7 text-gold" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="18" />
+        <circle cx="24" cy="24" r="13" strokeDasharray="3 2" />
+        <circle cx="24" cy="24" r="8" />
+        <circle cx="24" cy="24" r="2.5" fill="currentColor" />
+        <path d="M24 6v4 M24 38v4 M6 24h4 M38 24h4" />
+      </svg>
+    ),
   },
 ];
 
@@ -92,18 +126,41 @@ export default function AboutPage() {
                 className="font-display text-3xl md:text-4xl text-brand"
               />
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {PILLARS.map((pillar, i) => (
                 <Reveal key={pillar.title} delay={i * 0.1}>
-                  <span className="font-display text-3xl text-gold mb-4 block">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl text-brand mb-3">
-                    {pillar.title}
-                  </h3>
-                  <p className="font-body text-neutral leading-relaxed">
-                    {pillar.description}
-                  </p>
+                  <div className="h-full border border-putty/70 bg-sand/20 hover:border-gold/60 hover:bg-sand/35 transition-all duration-300 p-8 md:p-10 rounded-xs flex flex-col justify-between group shadow-xs">
+                    <div>
+                      {/* Top Bar: Icon + Numeral */}
+                      <div className="flex items-center justify-between mb-8">
+                        <div className="w-14 h-14 rounded-xs border border-gold/40 bg-paper flex items-center justify-center text-gold group-hover:scale-105 group-hover:border-gold transition-transform duration-300 shadow-xs">
+                          {pillar.icon}
+                        </div>
+                        <span className="font-display text-2xl text-gold/60 font-semibold tracking-wider">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      {/* Title & Tag */}
+                      <h3 className="font-display text-2xl text-brand mb-1.5">
+                        {pillar.title}
+                      </h3>
+                      <p className="font-mono text-[11px] uppercase tracking-wider text-gold font-semibold mb-4">
+                        {pillar.tag}
+                      </p>
+
+                      {/* Description */}
+                      <p className="font-body text-neutral leading-relaxed text-sm">
+                        {pillar.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom pledge indicator */}
+                    <div className="mt-8 pt-4 border-t border-putty/60 flex items-center gap-2 text-xs font-body text-brand/80">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                      <span>{pillar.pledge}</span>
+                    </div>
+                  </div>
                 </Reveal>
               ))}
             </div>
