@@ -18,6 +18,10 @@ const HERO_BANNERS = [
     src: "/images/hero/shambhala-bodhi-hero.jpg",
     alt: "StayVista at Shambhala Bodhi - Luxury Timber Chalet Villa in Lonavala",
   },
+  {
+    src: "/images/hero/shambhala-bodhi-exterior-hero.jpg",
+    alt: "StayVista at Shambhala Bodhi - Multi-Peaked Solid Timber A-Frame Chalet at Dusk",
+  },
 ];
 
 export default function Hero() {
