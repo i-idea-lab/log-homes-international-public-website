@@ -30,6 +30,70 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "stayvista-shambhala-bodhi",
+    title: "StayVista at Shambhala Bodhi",
+    category: "Resort",
+    location: "Pawna Lake, Lonavala, Maharashtra",
+    summary:
+      "A multi-peaked timber A-frame chalet villa with an infinity pool and open-to-sky jacuzzi, set against the hills of Pawna Lake.",
+    description: [
+      "Perched on the scenic hillside above Pawna Lake in Lonavala, Shambhala Bodhi is a signature handcrafted solid timber chalet estate designed and constructed by Log Homes. Featuring soaring pitched rooflines, natural wood wall paneling, and expansive glass openings, the villa captures panoramic vistas of the lake and surrounding Sahyadri mountain range.",
+      "The multi-level residence features double-height vaulted timber ceilings with exposed structural rafters, internal wooden staircases ascending to private mezzanine lofts, an infinity swimming pool with covered pergola lounge deck, and an open-to-sky stone jacuzzi terrace for holistic outdoor living.",
+    ],
+    highlights: [
+      "Multi-peaked solid timber A-frame chalet architecture",
+      "Infinity swimming pool & covered pergola lounge deck",
+      "Open-to-sky stone-walled jacuzzi & wellness terrace",
+      "Vaulted timber bedroom suites with mezzanine lofts",
+      "Full-height glazing opening to panoramic Pawna Lake & mountain views",
+    ],
+    image: "/images/projects/shambhala-bodhi-balcony.jpg",
+    images: [
+      {
+        src: "/images/projects/shambhala-bodhi-balcony.jpg",
+        alt: "Wooden balcony deck overlooking Pawna Lake and surrounding Sahyadri hills",
+        width: 1280,
+        height: 854,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-exterior.jpg",
+        alt: "Pitched-roof solid timber A-frame chalet villa at dusk",
+        width: 1280,
+        height: 853,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-pool.jpg",
+        alt: "Infinity swimming pool and covered pergola lounge deck",
+        width: 1280,
+        height: 854,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-jacuzzi.jpg",
+        alt: "Open-to-sky stone-walled jacuzzi and wellness terrace",
+        width: 1280,
+        height: 854,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-living.jpg",
+        alt: "Vaulted timber-clad living room opening to lakefront balcony",
+        width: 1280,
+        height: 854,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-loft-bedroom.jpg",
+        alt: "Master timber bedroom suite with wooden staircase leading to mezzanine loft",
+        width: 1280,
+        height: 854,
+      },
+      {
+        src: "/images/projects/shambhala-bodhi-night.jpg",
+        alt: "Night illumination of timber chalet villa and swimming pool",
+        width: 1280,
+        height: 854,
+      },
+    ],
+  },
+  {
     slug: "karjat-luxury-a-frame-resort",
     title: "Karjat Luxury A-Frame Resort",
     category: "Resort",
